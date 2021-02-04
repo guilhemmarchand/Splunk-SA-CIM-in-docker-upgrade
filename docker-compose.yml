@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+
+  # Splunk
+  splunk:
+    #image: splunk/splunk:latest
+    image: splunk/splunk:8.0
+    #image: splunk/splunk:7.3
+    #image: splunk/splunk:7.2
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+    hostname: splunk
+    ports:
+      - "8000:8000"
+      - "8089:8089"
+      - "9997:9997"
+      - "8088:8088"
+    environment:
+      SPLUNK_START_ARGS: "--accept-license"
+      SPLUNK_PASSWORD: "ch@ngeM3"
+    volumes:
+      - ./TA-config:/opt/splunk/etc/apps/TA-config
+      - ./01-source-CIM:/tmp/01-source-CIM
+      - ./01-source-CIM/Splunk_SA_CIM:/opt/splunk/etc/apps/Splunk_SA_CIM
+      - ./02-target-CIM:/tmp/02-target-CIM      
+      - ./03-control-dashboard/datamodel_comparator.xml:/opt/splunk/etc/apps/search/local/data/ui/views/datamodel_comparator.xml
+      - ./04-out-package:/tmp/04-out-package      
