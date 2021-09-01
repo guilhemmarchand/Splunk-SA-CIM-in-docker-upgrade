@@ -128,7 +128,7 @@ Finally, you can package your new version of the CIM app, if you use source cont
 
 ```
 cd /opt/splunk/etc/apps
-tar -cvzf /tmp/04-out-package/Splunk_SA_CIM.tgz
+tar -cvzf /tmp/04-out-package/Splunk_SA_CIM.tgz Splunk_SA_CIM
 ```
 
 Deploy this package in your environment and continue your further validation workflow.
