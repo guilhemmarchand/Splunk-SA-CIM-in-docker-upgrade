@@ -55,7 +55,7 @@ docker-compose up -d
 
 Very quickly, Splunk is up and running, listening on:
 
-https://localhost:8000
+http://localhost:8000
 
 - login: admin
 
